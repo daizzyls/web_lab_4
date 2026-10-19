@@ -280,13 +280,13 @@ console.log(findAllOccurrencesMethod([true, undefined, 'true'], true));
 
  function removeFalsyValuesCycle(arr) {
    const result = [];
- 
+
    for (let i = 0; i < arr.length; i++) {
      if (arr[i]) {
        result.push(arr[i]);
      }
    }
- 
+
    return result;
  }
 
@@ -318,11 +318,11 @@ console.log(findAllOccurrencesMethod([true, undefined, 'true'], true));
 
  function getStringsLengthCycle(arr) {
    const result = [];
- 
+
    for (let i = 0; i < arr.length; i++) {
      result.push(arr[i].length);
    }
- 
+
    return result;
 }
 
@@ -363,13 +363,13 @@ function getStringsLengthMethod(arr) {
    if (arr.length === 0) {
      return 0;
    }
- 
+
    let sum = 0;
- 
+
    for (let i = 0; i < arr.length; i++) {
      sum += arr[i];
    }
- 
+
    return Number((sum / arr.length).toFixed(2));
  }
 
@@ -377,9 +377,9 @@ function getStringsLengthMethod(arr) {
    if (arr.length === 0) {
      return 0;
    }
- 
+
    const sum = arr.reduce((acc, num) => acc + num, 0);
- 
+
    return Number((sum / arr.length).toFixed(2));
  }
 
@@ -403,11 +403,18 @@ function getStringsLengthMethod(arr) {
 
  */
 
-function isSameLength() {
-
-
+function isSameLengthCycle(arr) {
+  for (let i = 0; i < arr.length; ++i){
+    if (arr[i].length !== arr[0].length) {
+      return false;
+    }
+  }
+  return true;
 }
 
+function isSameLengthMethod(arr) {
+  return arr.every(str => str.length === arr[0].length);
+}
 
 /**
 
@@ -431,11 +438,18 @@ function isSameLength() {
 
  */
 
-function isValueEqualsIndex() {
+ function isValueEqualsIndexCycle(arr) {
+   for (let i = 0; i < arr.length; i++) {
+     if (arr[i] === i) {
+       return true;
+     }
+   }
+   return false;
+ }
 
-
+function isValueEqualsIndexMethod(arr) {
+  return arr.some((value, index) => value === index);
 }
-
 
 /**
 
@@ -461,11 +475,25 @@ function isValueEqualsIndex() {
 
  */
 
-function insertItem() {
+ function insertItemCycle(arr, newItem, index) {
+   let result = [];
+   for (let i = 0; i < index; i++) {
+     result.push(arr[i]);
+   }
+   
+   result.push(newItem);
+   
+   for (let i = index; i < arr.length; i++) {
+     result.push(arr[i]);
+   }
+   return result;
+ }
 
-
-}
-
+ function insertItemMethod(arr, newItem, index) {
+   const result = [...arr];
+   result.splice(index, 0, newItem);
+   return result;
+ }
 
 /**
 
@@ -490,11 +518,19 @@ function insertItem() {
  *  getHead([ 'a', 'b', 'c', 'd'], 0) => []
 
  */
-
-function getHead() {
-
-
-}
+ function getHeadCycle(arr, n) {
+   const result = [];
+ 
+   for (let i = 0; i < n && i < arr.length; i++) {
+     result.push(arr[i]);
+   }
+ 
+   return result;
+ }
+ 
+ function getHeadMethod(arr, n) {
+   return arr.slice(0, n);
+ }
 
 
 /**
@@ -521,10 +557,24 @@ function getHead() {
 
  */
 
-function getTail() {
-
-
-}
+ function getTailCycle(arr, n) {
+   const result = [];
+   const start = Math.max(arr.length - n, 0);
+ 
+   for (let i = start; i < arr.length; i++) {
+     result.push(arr[i]);
+   }
+ 
+   return result;
+ }
+ 
+ function getTailMethod(arr, n) {
+   if (n === 0) {
+     return [];
+   }
+ 
+   return arr.slice(-n);
+ }
 
 
 /**
