@@ -480,9 +480,9 @@ function isValueEqualsIndexMethod(arr) {
    for (let i = 0; i < index; i++) {
      result.push(arr[i]);
    }
-   
+
    result.push(newItem);
-   
+
    for (let i = index; i < arr.length; i++) {
      result.push(arr[i]);
    }
@@ -520,14 +520,14 @@ function isValueEqualsIndexMethod(arr) {
  */
  function getHeadCycle(arr, n) {
    const result = [];
- 
+
    for (let i = 0; i < n && i < arr.length; i++) {
      result.push(arr[i]);
    }
- 
+
    return result;
  }
- 
+
  function getHeadMethod(arr, n) {
    return arr.slice(0, n);
  }
@@ -560,19 +560,19 @@ function isValueEqualsIndexMethod(arr) {
  function getTailCycle(arr, n) {
    const result = [];
    const start = Math.max(arr.length - n, 0);
- 
+
    for (let i = start; i < arr.length; i++) {
      result.push(arr[i]);
    }
- 
+
    return result;
  }
- 
+
  function getTailMethod(arr, n) {
    if (n === 0) {
      return [];
    }
- 
+
    return arr.slice(-n);
  }
 
@@ -602,25 +602,25 @@ function isValueEqualsIndexMethod(arr) {
  */
  function doubleArrayCycle(arr) {
    const result = [];
- 
+
    for (let i = 0; i < arr.length; i++) {
      result.push(arr[i]);
    }
- 
+
    for (let i = 0; i < arr.length; i++) {
      result.push(arr[i]);
    }
- 
+
    return result;
  }
- 
+
  function doubleArrayCycle2(arr) {
    const result = [];
- 
+
    for (let i = 0; i < arr.length * 2; i++) {
      result.push(arr[i % arr.length]);
    }
- 
+
    return result;
  }
 
@@ -647,10 +647,9 @@ function isValueEqualsIndexMethod(arr) {
 
  */
 
-function toStringList() {
-
-
-}
+ function toStringListMethod(arr) {
+   return arr.join(',');
+ }
 
 function toStringListCycle(arr) {
   let result = '';
