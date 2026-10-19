@@ -601,10 +601,15 @@ function isValueEqualsIndexMethod(arr) {
 
  */
 
-function doubleArray() {
-
-
-}
+ function doubleArrayCycle2(arr) {
+   const result = [];
+ 
+   for (let i = 0; i < arr.length * 2; i++) {
+     result.push(arr[i % arr.length]);
+   }
+ 
+   return result;
+ }
 
 
 /**
