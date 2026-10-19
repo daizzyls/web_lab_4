@@ -689,10 +689,10 @@ function toStringListCycle(arr) {
 
  */
 
-function distinct() {
-
-
-}
+ 
+ function distinctMethod(arr) {
+   return arr.filter((item, index) => arr.indexOf(item) === index);
+ }
 
 
 /**
