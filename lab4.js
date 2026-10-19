@@ -690,25 +690,25 @@ function toStringListCycle(arr) {
  */
  function distinctCycle(arr) {
    const result = [];
- 
+
    for (let i = 0; i < arr.length; i++) {
      let isFound = false;
- 
+
      for (let j = 0; j < result.length; j++) {
        if (result[j] === arr[i]) {
          isFound = true;
          break;
        }
      }
- 
+
      if (!isFound) {
        result.push(arr[i]);
      }
    }
- 
+
    return result;
  }
- 
+
  function distinctMethod(arr) {
    return arr.filter((item, index) => arr.indexOf(item) === index);
  }
@@ -739,6 +739,26 @@ function toStringListCycle(arr) {
  *  createNDimensionalArray(1, 1) => [0]
 
  */
+
+ function createNDimensionalArrayCycle(n, size) {
+   if (n === 1) {
+     const result = [];
+
+     for (let i = 0; i < size; i++) {
+       result.push(0);
+     }
+
+     return result;
+   }
+
+   const result = [];
+
+   for (let i = 0; i < size; i++) {
+     result.push(createNDimensionalArrayCycle(n - 1, size));
+   }
+
+   return result;
+ }
 
  function createNDimensionalArrayMethod(n, size) {
    return Array.from({ length: size }, () =>
