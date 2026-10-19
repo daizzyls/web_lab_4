@@ -740,10 +740,11 @@ function toStringListCycle(arr) {
 
  */
 
-function createNDimensionalArray() {
-
-
-}
+ function createNDimensionalArrayMethod(n, size) {
+   return Array.from({ length: size }, () =>
+     n === 1 ? 0 : createNDimensionalArrayMethod(n - 1, size)
+   );
+ }
 
 
 /**
