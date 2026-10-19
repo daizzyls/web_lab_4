@@ -688,7 +688,26 @@ function toStringListCycle(arr) {
  *  distinct([]) => []
 
  */
-
+ function distinctCycle(arr) {
+   const result = [];
+ 
+   for (let i = 0; i < arr.length; i++) {
+     let isFound = false;
+ 
+     for (let j = 0; j < result.length; j++) {
+       if (result[j] === arr[i]) {
+         isFound = true;
+         break;
+       }
+     }
+ 
+     if (!isFound) {
+       result.push(arr[i]);
+     }
+   }
+ 
+   return result;
+ }
  
  function distinctMethod(arr) {
    return arr.filter((item, index) => arr.indexOf(item) === index);
